@@ -1,85 +1,63 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import RefreshButton from './components/RefreshButton.vue'
+import SearchForm from './components/SearchForm.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <div class="header">
+    <div class="title-wrap">
+      <h1 class="title">Список новостей</h1>
+      <RefreshButton />
     </div>
-  </header>
-
-  <RouterView />
+    <SearchForm />
+  </div>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1060px;
+  max-width: 100%;
+  max-height: 76px;
+  border-bottom: 1px solid #e5e5e5;
+  margin-top: 36px;
+  margin-right: 36px;
+  margin-left: 36px;
+  padding-bottom: 36px;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.title-wrap {
+  display: flex;
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+.title {
+  color: #424242;
+  text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-family: Roboto;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin-right: 47px;
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
+@media (max-width: 960px) {
+  .header {
+    flex-direction: column;
+    min-height: 150px;
+  }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
+  .title {
+    font-size: 24px;
+  }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
+  .title-wrap {
     display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 320px;
   }
 }
 </style>
